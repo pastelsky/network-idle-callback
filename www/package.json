@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "network-idle-callback": "^0.0.3",
     "node-sass": "^4.7.2",
     "node-sass-chokidar": "^1.1.0",
     "normalize.css": "^8.0.0",

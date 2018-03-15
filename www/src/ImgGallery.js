@@ -21,7 +21,8 @@ export default class ImgGallery extends Component {
       <section className="img-gallery">
         {
           Array(this.state.count).fill(0).map((_, index) => (
-            <img src={ `https://source.unsplash.com/600x600/?modern,minimal,${index}` }
+            <img key={ index }
+                 src={ `https://source.unsplash.com/600x600/?modern,minimal,${index}` }
                  className="img-gallery__img" />
           ))
         }
