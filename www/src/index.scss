@@ -1,0 +1,34 @@
+@import '../node_modules/normalize.scss/normalize';
+@import './variables.scss';
+
+html, body {
+  color: #212121;
+  font-family: $font-family-body;
+  line-height: 1.4;
+}
+
+input, button {
+  font-family: $font-family-body;
+}
+
+button {
+  background: none;
+  border: 1px solid #212121;
+  color: #212121;
+  padding: 10px 15px;
+  transition: all 0.2s;
+
+
+  &:hover {
+    background: #212121;
+    color: white;
+  }
+}
+
+input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  box-shadow: none;
+}

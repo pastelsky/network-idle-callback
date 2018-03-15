@@ -1,0 +1,11 @@
+{
+  "name": "network-idle-callback",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {},
+  "files": [
+    "./index.js",
+    "./index-serviceworker.js"
+  ]
+}

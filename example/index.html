@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aliquid animi blanditiis delectus
+            doloremque esse facere incidunt, necessitatibus nisi officiis optio recusandae saepe sit tempora vero? A at
+            illum quo.
+        </p>
+
+        <script>
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+              navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+              });
+            });
+          }
+        </script>
+
+        <script>
+          const words = ['nature', 'water', 'fire', 'furniture', 'room', 'building']
+          for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+              const img = document.createElement('img')
+              img.src = `https://source.unsplash.com/1600x900/?${words[i % words.length]}`
+              img.width = 600
+              document.body.appendChild(img)
+            }, i * 100)
+          }
+        </script>
+        <script type="module">
+          import { networkIdleCallback } from '../index.js'
+
+          console.log('requestNetworkIdleCallback start')
+          networkIdleCallback(() => {
+            console.log('requestNetworkIdleCallback call succeeded 1')
+          }, { timeout: 10000 })
+
+          networkIdleCallback(() => {
+            console.log('requestNetworkIdleCallback call succeeded 2')
+          }, { timeout: 10000 })
+
+          networkIdleCallback(() => {
+            console.log('requestNetworkIdleCallback call succeeded 3')
+          }, { timeout: 10000 })
+        </script>
+    </body>
+</html>

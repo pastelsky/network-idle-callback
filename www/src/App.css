@@ -1,0 +1,28 @@
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto ;
+}
+
+.app-content {
+  grid-row: 2;
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-rows: auto;
+  padding-left: 235px;
+}
+
+.app-sidebar {
+  padding: 10px 20px;
+  position: fixed;
+  width: 220px;
+  background: white;
+  top: 0;
+  bottom: 0;
+}
+
+.header {
+  grid-row: 1;
+  grid-column: 1 / 13;
+  background: #000;
+}
