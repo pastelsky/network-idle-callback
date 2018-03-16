@@ -3,7 +3,7 @@ const DOMContentLoad = new Promise((resolve) => {
   document.addEventListener("DOMContentLoaded", resolve);
 })
 
-export function networkIdleCallback(fn, options = { timeout: 0 }) {
+function networkIdleCallback(fn, options = { timeout: 0 }) {
   // Call the function immediately if required features are absent
   if (!'MessageChannel' in window || !'serviceWorker' in navigator) {
     DOMContentLoad.then(() => fn({ didTimeout: false }))
@@ -42,7 +42,7 @@ export function networkIdleCallback(fn, options = { timeout: 0 }) {
   messageChannel.port1.start();
 }
 
-export function cancelNetworkIdleCallback(callbackId) {
+function cancelNetworkIdleCallback(callbackId) {
   clearTimeout(callbackId)
 
   networkIdleCallback.__callbacks__ = networkIdleCallback.__callbacks__
@@ -86,4 +86,9 @@ function handleMessage(event) {
       })
       break;
   }
+}
+
+module.exports = {
+  networkIdleCallback,
+  cancelNetworkIdleCallback,
 }
