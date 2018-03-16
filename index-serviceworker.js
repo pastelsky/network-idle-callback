@@ -3,13 +3,13 @@ self.addEventListener('message', function handler(event) {
   if (event.data === 'NETWORK_IDLE_ENQUIRY') {
     event.ports[0].postMessage(
       self.requestMonitor.isIdle ?
-        'NETWORK_IDLE_ENQUIRY_RESULT_IDLE':
-        'NETWORK_IDLE_ENQUIRY_RESULT_NOT_IDLE'
-  );
+        'NETWORK_IDLE_ENQUIRY_RESULT_IDLE' :
+        'NETWORK_IDLE_ENQUIRY_RESULT_NOT_IDLE',
+    );
   }
 });
 
-if(self.requestMonitor) {
+if (self.requestMonitor) {
   throw new Error('ServiceWorker already has a method named `requestMonitor`. Rename the method for network idle callback to work.')
 } else {
   self.requestMonitor = {
@@ -61,7 +61,11 @@ if(self.requestMonitor) {
       if (this.requestSet[clientId].size === 0) {
         this.setIdleAfterTimeout(() => {
           console.log('posting message to', clientId)
-          self.clients.get(clientId).then((client) => {
+          const matchedClient = self.clients.get(clientId)
+
+          if (!matchedClient) return
+
+          matchedClient.then((client) => {
             client.postMessage('NETWORK_IDLE_CALLBACK')
           })
         })
