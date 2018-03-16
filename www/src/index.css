@@ -366,10 +366,13 @@ input, button {
 
 button {
   background: none;
-  border: 1px solid #212121;
+  border: 2px solid #212121;
   color: #212121;
-  padding: 10px 15px;
-  transition: all 0.2s; }
+  padding: 8px 12px;
+  transition: all 0.2s;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase; }
   button:hover {
     background: #212121;
     color: white; }
@@ -377,6 +380,10 @@ button {
 input {
   background: none;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   outline: none;
-  box-shadow: none; }
+  box-shadow: none;
+  transition: all 0.2s;
+  width: 100%; }
+  input:focus {
+    border-bottom: 2px solid #212121; }

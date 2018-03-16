@@ -9,7 +9,8 @@
   grid-column: 1 / 13;
   display: grid;
   grid-template-rows: auto;
-  padding-left: 235px;
+  padding-left: 280px;
+  width: calc(100% - 300px);
 }
 
 .app-sidebar {
@@ -19,6 +20,7 @@
   background: white;
   top: 0;
   bottom: 0;
+  border-right: 1px solid #EEE;
 }
 
 .header {

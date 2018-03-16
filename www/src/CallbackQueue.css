@@ -1,3 +1,10 @@
+.callback-queue h1 {
+  font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 1.1rem; }
+  .callback-queue h1 span {
+    font-weight: lighter;
+    color: #9aa1a9; }
+
 .callback-queue__vis {
   position: relative; }
 
@@ -5,7 +12,7 @@
 .callback-queue__callback {
   background: #eee;
   width: 100%;
-  height: 35px;
+  height: 30px;
   margin-bottom: 1px; }
 
 .callback-queue__callback {
@@ -20,25 +27,55 @@
   font-size: 0.7rem;
   letter-spacing: 2px;
   margin-bottom: 0;
-  border-bottom: 1px solid #383838; }
-  .callback-queue__callback::before {
-    content: '';
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
-    animation: grow-right 2s linear;
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: 0 0; }
+  border-bottom: 1px solid #383838;
+  transition: background 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-fill-mode: forwards;
+  will-change: transform; }
+
+.callback-queue__callback-fill {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  animation: grow-right 2s linear;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 0; }
+  .callback-queue__callback--called .callback-queue__callback-fill {
+    animation: none; }
+
+.callback-queue__callback--called {
+  animation: move-right 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: #53BAF5;
+  border: none; }
+  .callback-queue__callback--called::before {
+    animation: none; }
+
+.callback-queue__callback-time {
+  position: absolute;
+  left: 105%;
+  color: white;
+  background: #7DD26C;
+  padding: 0.5px 4px; }
 
 @keyframes grow-right {
   from {
     transform: scaleX(0); }
   to {
     transform: scaleX(1); } }
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1; }
+  60% {
+    transform: translateX(120%) scale(1);
+    opacity: 1; }
+  100% {
+    transform: translateX(120%) scale(0.8);
+    opacity: 0; } }
 
 .callback-queue__callback-container {
   position: absolute;
@@ -52,3 +89,19 @@
 .callback-queue__timeout-input {
   margin: 10px 0;
   display: block; }
+  .callback-queue__timeout-input span {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #666E77;
+    text-transform: uppercase; }
+  .callback-queue__timeout-input input {
+    font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+  .callback-queue__timeout-input p {
+    font-weight: lighter;
+    font-size: 0.75rem;
+    color: #666E77;
+    margin-top: 0;
+    margin-bottom: 5px; }
+
+.callback-queue__explaination {
+  font-size: 0.9rem; }

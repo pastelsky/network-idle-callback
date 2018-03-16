@@ -15,7 +15,6 @@ class App extends Component {
         <div className="app-content">
           <div className="app-sidebar">
             <CallbackQueue />
-            <p> Simulate network activity by scrolling down the page.</p>
           </div>
           <ImgGallery />
         </div>

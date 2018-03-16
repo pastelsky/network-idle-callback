@@ -3,8 +3,24 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   max-width: 990px;
-  margin: auto; }
+  margin: 40px auto; }
 
 .img-gallery__img {
   max-width: 100%;
   border-radius: 2px; }
+
+.img-gallery__loader {
+  position: fixed;
+  right: 25px;
+  bottom: 30px;
+  padding: 10px 20px;
+  background: #212121;
+  color: white;
+  animation: pulsate 0.7s alternate infinite;
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.05); }
+
+@keyframes pulsate {
+  from {
+    opacity: 0.8; }
+  to {
+    opacity: 1; } }
