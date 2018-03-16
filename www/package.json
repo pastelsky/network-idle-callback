@@ -2,6 +2,7 @@
   "name": "www",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://pastelsky.github.io/network-idle-callback",
   "dependencies": {
     "classnames": "^2.2.5",
     "debounce": "^1.1.0",
@@ -24,6 +25,11 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm-run-all build-css build-js",
     "start-js": "react-scripts start",
-    "build-js": "react-scripts build"
+    "build-js": "react-scripts build",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
