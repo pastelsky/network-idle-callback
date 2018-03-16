@@ -4756,9 +4756,9 @@ neo-async@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.0.tgz#76b1c823130cca26acfbaccc8fbaf0a2fa33b18f"
 
-network-idle-callback@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/network-idle-callback/-/network-idle-callback-0.0.4.tgz#0146ba7fa605d5d37f51fe8c6c392e4a70d562be"
+network-idle-callback@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/network-idle-callback/-/network-idle-callback-0.0.6.tgz#4d2e951f04d63ae781f7e610e4a01a2757014779"
 
 no-case@^2.2.0:
   version "2.3.2"
