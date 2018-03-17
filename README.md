@@ -91,3 +91,6 @@ However, more often than not, this is the behavior you expect, as you're only co
 In the abscence of a activated service worker, the callbacks will be executed immediately. If you can, calling `skipWaiting()` in the activation phase will skip the activation delay.
 
 **3. When exactly does the `networkIdleCallback` execute ?**
+
+<img src="https://github.com/pastelsky/network-idle-callback/blob/master/diagram.svg" alt="Lifecycle" width="500" />
+
