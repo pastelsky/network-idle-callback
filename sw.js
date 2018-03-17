@@ -1,4 +1,4 @@
-importScripts('https://unpkg.com/network-idle-callback@0.0.7/lib/index-serviceworker.js')
+importScripts('https://unpkg.com/network-idle-callback@1.0.0-0/lib/request-monitor.js')
 
 self.addEventListener('install', function (event) {
   console.log('[ServiceWorker] Installed');
@@ -11,21 +11,15 @@ self.addEventListener('activate', function (e) {
 });
 
 self.addEventListener('fetch', function (e) {
-  //console.log('[ServiceWorker] Fetch', e.request.url);
-  self.requestMonitor.add(e)
-  if (!e.clientId) {
-    console.log('was page request')
-  }
+  self.requestMonitor.listen(e)
 
   const promise = fetch(e.request)
     .then((response) => {
-      //console.log('done', e.clientId)
-      self.requestMonitor.remove(e)
+      self.requestMonitor.unlisten(e)
       return response
     })
     .catch((e) => {
-      console.log('error')
-      self.requestMonitor.remove(e)
+      self.requestMonitor.unlisten(e)
     })
 
   e.respondWith(promise)
