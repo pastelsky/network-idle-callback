@@ -1,5 +1,4 @@
 self.addEventListener('message', function handler(event) {
-  console.log('[ServiceWorker] message', event.data)
   if (event.data === 'NETWORK_IDLE_ENQUIRY') {
     event.ports[0].postMessage(
       self.requestMonitor.isIdle ?
@@ -33,14 +32,12 @@ if (self.requestMonitor) {
     },
 
     setIdleAfterTimeout(fn) {
-      console.log('will set idle after ' + this.minIdleTime)
       if (this.idleTimeoutId) {
         clearTimeout(this.idleTimeoutId)
       }
 
       this.idleTimeoutId = setTimeout(() => {
         if (fn) fn()
-        console.log('is idle now')
         this.isIdle = true
       }, this.minIdleTime)
     },
@@ -54,13 +51,11 @@ if (self.requestMonitor) {
       this.requestSet[clientId].delete(request)
 
       if (!clientId) {
-        console.log('page load finished')
         return
       }
 
       if (this.requestSet[clientId].size === 0) {
         this.setIdleAfterTimeout(() => {
-          console.log('posting message to', clientId)
           const matchedClient = self.clients.get(clientId)
 
           if (!matchedClient) return
