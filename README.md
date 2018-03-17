@@ -4,6 +4,8 @@
 
 `networkIdleCallback` works similar to [`requestIdleCallback`](https://developers.google.com/web/updates/2015/08/using-requestidlecallback), detecting and notifying you when network activity goes idle in your current tab.
 
+It can be used to load low priority resources such as analytics, or for preloading assets required in the future.
+
 ## Installation
 ```bash
 npm install network-idle-callback
