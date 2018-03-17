@@ -1,4 +1,7 @@
 # networkIdleCallback
+<img src="https://img.shields.io/npm/v/network-idle-callback.svg" /> <img src="https://img.shields.io/npm/l/network-idle-callback.svg" />
+
+
 `networkIdleCallback` works similar to [`requestIdleCallback`](https://developers.google.com/web/updates/2015/08/using-requestidlecallback), detecting and notifying you when network activity goes idle in your current tab.
 
 ## Installation
@@ -8,7 +11,7 @@ npm install network-idle-callback
 
 ## Usage
 ### Setup
-`networkIdleCallback` uses a serviceworker to detect network activity. The easiest way to begin monitoring network activity is by importing the script into your serviceworker, and wrapping your fetch calls as such.
+`networkIdleCallback` uses a serviceworker to detect network activity. The easiest way to begin monitoring network activity is by importing the script into your serviceworker, and wrapping your fetch calls as such -
 
 ```js
 // via CDN
