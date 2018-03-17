@@ -1,4 +1,4 @@
-importScripts('https://unpkg.com/network-idle-callback/lib/index-serviceworker.js')
+importScripts('https://unpkg.com/network-idle-callback@0.0.7/lib/index-serviceworker.js')
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Installed');
