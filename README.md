@@ -6,6 +6,8 @@
 
 It can be used to load low priority resources such as analytics, or for preloading assets required in the future.
 
+**DEMO : [https://pastelsky.github.io/network-idle-callback]()**
+
 ## Installation
 ```bash
 npm install network-idle-callback
