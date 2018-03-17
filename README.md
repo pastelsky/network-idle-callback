@@ -58,7 +58,7 @@ networkIdleCallback(() => {
 }, { timeout: 1000 /* recommended */ })
 ```
 
-2. **Network activity cooldown** - By default, `networkIdleCallback` waits for a period of 200ms after network activity seizes to trigger the callbacks. If you want to redcue this _debounce_ time, in your serviceworker, you can set - 
+2. **Network activity cooldown** - By default, `networkIdleCallback` waits for a period of 200ms after network activity seizes to trigger the callbacks. If you want to reduce this _debounce_ time, in your serviceworker, you can set - 
 
 ```js
 self.requestMonitor.minIdleTime = 0 // or any other value
@@ -87,11 +87,11 @@ cancelNetworkCallback(id)
 
 Since a serviceworker can only listen to network activity arising from the domains it was registered with, without the support of a browser primitive, there is currently no way to detect network activity from other domains, or apps other than your web browser. 
 
-However, more often than not, this is the behavior you expect, as you're only concerned with prioitizing resource loading in the context of the current tab.
+However, more often than not, this is the behavior you expect, as you're only concerned with prioritizing resource loading in the context of the current tab.
 
 **2. What happens if my serviworker is installed, but not activated?**
 
-In the abscence of a activated service worker, the callbacks will be executed immediately. If you can, calling `skipWaiting()` in the activation phase will skip the activation delay.
+In the absence of a activated service worker, the callbacks will be executed immediately. If you can, calling `skipWaiting()` in the activation phase will skip the activation delay.
 
 **3. When exactly does the `networkIdleCallback` execute ?**
 
