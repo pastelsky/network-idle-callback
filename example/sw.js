@@ -1,4 +1,4 @@
-importScripts('../index-serviceworker.js')
+importScripts('../request-monitor.js')
 
 self.addEventListener('install', function (e) {
   console.log('[ServiceWorker] Installed');
@@ -10,17 +10,17 @@ self.addEventListener('activate', function (e) {
 
 self.addEventListener('fetch', function (e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
-  self.requestMonitor.add(e)
+  self.requestMonitor.listen(e)
 
   const promise = fetch(e.request)
     .then((response) => {
       console.log('done', e.clientId)
-      self.requestMonitor.remove(e)
+      self.requestMonitor.unlisten(e)
       return response
     })
     .catch((e) => {
       console.log('error')
-      self.requestMonitor.remove(e)
+      self.requestMonitor.unlisten(e)
     })
 
   e.respondWith(promise)

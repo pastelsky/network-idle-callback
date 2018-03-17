@@ -1,7 +1,7 @@
 .app-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto ;
+  grid-template-rows: auto;
 }
 
 .app-content {
@@ -9,8 +9,6 @@
   grid-column: 1 / 13;
   display: grid;
   grid-template-rows: auto;
-  padding-left: 280px;
-  width: calc(100% - 300px);
 }
 
 .app-sidebar {
@@ -23,8 +21,23 @@
   border-right: 1px solid #EEE;
 }
 
+.app-content, .header {
+  padding-left: 280px;
+  width: calc(100% - 300px);
+}
+
 .header {
   grid-row: 1;
   grid-column: 1 / 13;
-  background: #000;
+}
+
+.app__img-credits {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0 4px ;
+  text-decoration: none;
+  font-size: 0.7rem;
+  color: #212121;
 }

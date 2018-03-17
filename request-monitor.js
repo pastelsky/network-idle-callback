@@ -16,9 +16,9 @@ if (self.requestMonitor) {
     requestSet: {},
     isIdle: true,
     idleTimeoutId: null,
-    minIdleTimeout: 200,
+    minIdleTime: 200,
 
-    add({ clientId, request }) {
+    listen({ clientId, request }) {
       clearTimeout(this.idleTimeoutId)
       this.isIdle = false
 
@@ -33,7 +33,7 @@ if (self.requestMonitor) {
     },
 
     setIdleAfterTimeout(fn) {
-      console.log('will set idle after ' + this.minIdleTimeout)
+      console.log('will set idle after ' + this.minIdleTime)
       if (this.idleTimeoutId) {
         clearTimeout(this.idleTimeoutId)
       }
@@ -42,10 +42,10 @@ if (self.requestMonitor) {
         if (fn) fn()
         console.log('is idle now')
         this.isIdle = true
-      }, this.minIdleTimeout)
+      }, this.minIdleTime)
     },
 
-    remove({ clientId, request }) {
+    unlisten({ clientId, request }) {
       if (!clientId) {
         this.setIdleAfterTimeout()
         return
