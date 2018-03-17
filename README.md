@@ -55,7 +55,7 @@ There are a couple of ways in which the networkIdleCallback can be customized -
 ``` js
 networkIdleCallback(() => {
   console.log('Execute low network priority tasks here.')
-}, { timeout: 1000 /* recommended */ })
+}, { timeout: 1000 /* here */ })
 ```
 
 2. **Network activity cooldown** - By default, `networkIdleCallback` waits for a period of 200ms after network activity seizes to trigger the callbacks. If you want to reduce this _debounce_ time, in your serviceworker, you can set - 
