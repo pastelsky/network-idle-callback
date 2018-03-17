@@ -6,7 +6,7 @@
 
 It can be used to load low priority resources such as analytics, or for preloading assets required in the future.
 
-**DEMO : [https://pastelsky.github.io/network-idle-callback]()**
+<b><a href="https://pastelsky.github.io/network-idle-callback">DEMO</a></b>
 
 ## Installation
 ```bash
