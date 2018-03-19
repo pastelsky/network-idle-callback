@@ -58,9 +58,8 @@ if (self.requestMonitor) {
         this.setIdleAfterTimeout(() => {
           const matchedClient = self.clients.get(clientId)
 
-          if (!matchedClient) return
-
           matchedClient.then((client) => {
+            if (!client) return
             client.postMessage('NETWORK_IDLE_CALLBACK')
           })
         })
