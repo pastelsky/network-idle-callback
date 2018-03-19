@@ -18,7 +18,6 @@ export default class ImgGallery extends Component {
 
   componentDidMount() {
     this.observer = new IntersectionObserver((entries) => {
-      console.log('INTERSECTED', entries[0])
       if (entries[0].intersectionRatio > 0) {
         this.increasePageSize()
       }
@@ -27,7 +26,6 @@ export default class ImgGallery extends Component {
     this.observer.observe(this.sentinel);
 
     navigator.serviceWorker.addEventListener('message', ({ data }) => {
-      console.log('setting false dat')
       // This event is a part of the implementation internals
       // Do not use it in your application code.
       if (data === 'NETWORK_IDLE_CALLBACK' || data === 'NETWORK_IDLE_ENQUIRY_RESULT_IDLE') {
