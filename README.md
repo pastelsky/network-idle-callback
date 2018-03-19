@@ -19,7 +19,7 @@ npm install network-idle-callback
 
 ```js
 // via CDN
-importScripts('https://unpkg.com/network-idle-callback@1.0.0/lib/request-monitor.js')
+importScripts('https://unpkg.com/network-idle-callback@1.0.1/lib/request-monitor.js')
 
 // or if you process your sw through a bundler
 import 'network-idle-callback/lib/request-monitor'
@@ -87,17 +87,26 @@ cancelNetworkCallback(id)
 
 ## FAQ's
 
-**1. Does `networkIdleCallback` take into account network activity arising from other clients?**
+**1. Why not just use the `window.onload` instead ?**
+
+- `window.onload` also waits for all of the page's rendering is complete. 
+If the rendering work is expensive and takes a long time, there could be 
+a time difference between when the resources have finished loading (network idle) and when `window.load` fires.
+
+- A larger limitation, perhaps, is that it fires only once during the lifecycle of the page. Hence it cannot be used to 
+detect network idle states occurring after page load. This can especially be of use for preloading content in
+single page applications.
+
+**2. When exactly does the `networkIdleCallback` execute ?**
+
+<img src="https://github.com/pastelsky/network-idle-callback/blob/master/diagram.svg" alt="Lifecycle" width="500" />
+
+**3. Does `networkIdleCallback` take into account network activity arising from other clients?**
 
 Since a serviceworker can only listen to network activity arising from the domains it was registered with, without the support of a browser primitive, there is currently no way to detect network activity from other domains, or apps other than your web browser. 
 
 However, more often than not, this is the behavior you expect, as you're only concerned with prioritizing resource loading in the context of the current tab.
 
-**2. What happens if my serviworker is installed, but not activated?**
+**4. What happens if my serviworker is installed, but not activated?**
 
 In the absence of a activated service worker, the callbacks will be executed immediately. If you can, calling `skipWaiting()` in the activation phase will skip the activation delay.
-
-**3. When exactly does the `networkIdleCallback` execute ?**
-
-<img src="https://github.com/pastelsky/network-idle-callback/blob/master/diagram.svg" alt="Lifecycle" width="500" />
-
