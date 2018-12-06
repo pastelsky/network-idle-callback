@@ -1,4 +1,4 @@
-importScripts('https://unpkg.com/network-idle-callback@1.0.0/lib/request-monitor.js')
+importScripts('https://cdn.jsdelivr.net/npm/network-idle-callback@1.0.1/lib/request-monitor.js')
 
 self.addEventListener('install', function (event) {
   console.log('[ServiceWorker] Installed');
