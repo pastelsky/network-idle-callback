@@ -36,7 +36,7 @@ self.addEventListener('fetch', function (event) {
       self.requestMonitor.unlisten(event) // Unlisten to failed requests
     })
 
-  e.respondWith(fetchPromise)
+  event.respondWith(fetchPromise)
 });
 ```
 and that's it. You're good to start using the callback - 
@@ -62,7 +62,7 @@ networkIdleCallback(() => {
 }, { timeout: 1000 /* here */ })
 ```
 
-2. **Network activity cooldown** - By default, `networkIdleCallback` waits for a period of 200ms after network activity seizes to trigger the callbacks. If you want to reduce this _debounce_ time, in your serviceworker, you can set - 
+2. **Network activity cooldown** - By default, `networkIdleCallback` waits for a period of 200ms after network activity ceases to trigger the callbacks. If you want to reduce this _debounce_ time, in your serviceworker, you can set - 
 
 ```js
 self.requestMonitor.minIdleTime = 0 // or any other value
