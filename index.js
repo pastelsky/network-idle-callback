@@ -42,6 +42,8 @@ function networkIdleCallback(fn, options = { timeout: 0 }) {
 
   messageChannel.port1.addEventListener('message', handleMessage);
   messageChannel.port1.start();
+  
+  return timeoutId;
 }
 
 function cancelNetworkIdleCallback(callbackId) {
