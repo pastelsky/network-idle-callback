@@ -2,13 +2,6 @@ const DOMContentLoad = new Promise((resolve) => {
   document.addEventListener("DOMContentLoaded", resolve);
 })
 
-navigator.serviceWorker.getRegistration()
-  .then((registration) => {
-    if (!registration) {
-      console.warn('`networkIdleCallback` was called before a service worker was registered. `networkIdleCallback` is ineffective without a working service worker')
-    }
-  })
-
 function networkIdleCallback(fn, options = { timeout: 0 }) {
   // Call the function immediately if required features are absent
   if (
@@ -67,8 +60,16 @@ networkIdleCallback.__popCallback__ = (callback, didTimeout) => {
 
 networkIdleCallback.__callbacks__ = []
 
-if ('serviceWorker' in navigator)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistration()
+    .then((registration) => {
+      if (!registration) {
+        console.warn('`networkIdleCallback` was called before a service worker was registered. `networkIdleCallback` is ineffective without a working service worker')
+      }
+    })
+  
   navigator.serviceWorker.addEventListener('message', handleMessage)
+}
 
 function handleMessage(event) {
   if (!event.data)
