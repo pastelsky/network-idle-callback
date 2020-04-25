@@ -50,7 +50,7 @@ function cancelNetworkIdleCallback(callbackId) {
   clearTimeout(callbackId)
 
   networkIdleCallback.__callbacks__ = networkIdleCallback.__callbacks__
-    .filter(cb => cb.id === callbackId)
+    .filter(cb => cb.id !== callbackId)
 }
 
 networkIdleCallback.__popCallback__ = (callback, didTimeout) => {
