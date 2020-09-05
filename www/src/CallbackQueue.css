@@ -1,9 +1,13 @@
-.callback-queue h1 {
-  font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 1.1rem; }
-  .callback-queue h1 span {
-    font-weight: lighter;
-    color: #9aa1a9; }
+.callback-queue {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  .callback-queue h1 {
+    font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.1rem; }
+    .callback-queue h1 span {
+      font-weight: lighter;
+      color: #9aa1a9; }
 
 .callback-queue__vis {
   position: relative; }
@@ -105,3 +109,8 @@
 
 .callback-queue__explaination {
   font-size: 0.9rem; }
+
+.callback-queue__sw-state {
+  margin-top: auto;
+  color: #9ba6b4;
+  font-size: 0.8rem; }
