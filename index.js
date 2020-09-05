@@ -35,13 +35,15 @@ function networkIdleCallback(fn, options = { timeout: 0 }) {
 
   messageChannel.port1.addEventListener('message', handleMessage);
   messageChannel.port1.start();
+  
+  return timeoutId;
 }
 
 function cancelNetworkIdleCallback(callbackId) {
   clearTimeout(callbackId)
 
   networkIdleCallback.__callbacks__ = networkIdleCallback.__callbacks__
-    .find(cb => cb.id === callbackId)
+    .filter(cb => cb.id !== callbackId)
 }
 
 networkIdleCallback.__popCallback__ = (callback, didTimeout) => {
