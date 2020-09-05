@@ -1,6 +1,6 @@
 {
   "name": "network-idle-callback",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {},
@@ -11,7 +11,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1"
   },
-  "publishConfig":{ 
+  "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
